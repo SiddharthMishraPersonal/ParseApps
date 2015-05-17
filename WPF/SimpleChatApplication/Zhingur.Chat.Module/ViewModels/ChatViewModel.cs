@@ -135,6 +135,7 @@ namespace Zhingur.Chat.Module.ViewModels
 
             this.eventAggregator = eventAggregator;
             this.GoBackCommand = new DelegateCommand(this.GoBackCommandHandler);
+            this.SendChatCommand = new DelegateCommand(this.SendChatCommandHandler);
 
             this.ProfileName = "No Name";
             this.UserCurrentStatus = "Offline";
@@ -154,6 +155,8 @@ namespace Zhingur.Chat.Module.ViewModels
                 IsSender = true
             };
             this.ChatLines.Add(chat);
+
+
         }
 
         #endregion
@@ -193,6 +196,12 @@ namespace Zhingur.Chat.Module.ViewModels
         private void SendChatCommandHandler()
         {
             // Code to send chat to Parse.com server.
+            var chat = new Chat(this.SenderProfileId, this.ChatText)
+            {
+                IsSender = true
+            };
+
+            this.ChatLines.Add(chat);
         }
 
         #endregion
