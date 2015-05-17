@@ -1,4 +1,7 @@
-﻿using Microsoft.Practices.Prism.Commands;
+﻿using Common.Events.EventArgs;
+using Common.Events.Events;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -17,13 +20,16 @@ namespace Zhingur.Chat.Module.ViewModels
         #region Private Member Variables
 
         private ucChatView chatView;
+        private IEventAggregator eventAggregator;
 
         #endregion
 
 
         [ImportingConstructor]
-        public ChatHistoryViewModel(ucChatView chatView)
+        public ChatHistoryViewModel(IEventAggregator eventAggregator, ucChatView chatView)
         {
+            this.eventAggregator = eventAggregator;
+            this.chatView = chatView;
             this.NewChatCommand = new DelegateCommand(this.CreateNewChat);
         }
 
@@ -42,7 +48,8 @@ namespace Zhingur.Chat.Module.ViewModels
         {
             try
             {
-
+                var changeViewUserControlEventArgs = new ChangeViewUserControlEventArgs(this.chatView);
+                this.eventAggregator.GetEvent<ChangeViewUserControlEvent>().Publish(changeViewUserControlEventArgs);
             }
             catch (Exception)
             {

@@ -20,7 +20,7 @@ namespace Zhingur.Chat.Module.ViewModels
         #region Private Member Variables
 
         private UserControl contentControl;
-        //private IEventAggregator eventAggregator;
+        private IEventAggregator eventAggregator;
         private IRegionManager regionManager;
         private ucChatHistoryView chatHistoryView;
 
@@ -67,29 +67,27 @@ namespace Zhingur.Chat.Module.ViewModels
         [ImportingConstructor]
         public AppViewModel(IEventAggregator eventAggregator, IRegionManager regionManager, ucChatHistoryView chatHistoryView)
         {
-            //if (eventAggregator == null)
-            //{
-            //    throw new ArgumentNullException("eventAggregator");
-            //}
+            if (eventAggregator == null)
+            {
+                throw new ArgumentNullException("eventAggregator");
+            }
 
             if (regionManager == null)
             {
                 throw new ArgumentNullException("regionManager");
             }
 
-            //this.eventAggregator = eventAggregator;
+            this.eventAggregator = eventAggregator;
             this.regionManager = regionManager;
             this.chatHistoryView = chatHistoryView;
             this.ContentControl = this.chatHistoryView;
-            
 
-            //var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
-            //changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
+            // Subscription of the event.
+            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
+            changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
         }
 
         #endregion
-
-        
 
         #region Public Methods
 
@@ -104,15 +102,11 @@ namespace Zhingur.Chat.Module.ViewModels
 
             if (userControl != null)
             {
-                if (userControl.GetType() == typeof(ucChatView))
-                {
-                    regionManager.RegisterViewWithRegion("MainRegion", typeof(ucChatView));
-                }
+                this.ContentControl = userControl;
             }
         }
 
         #endregion
-
 
     }
 }
