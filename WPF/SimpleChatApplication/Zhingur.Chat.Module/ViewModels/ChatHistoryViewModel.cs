@@ -19,17 +19,15 @@ namespace Zhingur.Chat.Module.ViewModels
     {
         #region Private Member Variables
 
-        private ucChatView chatView;
         private IEventAggregator eventAggregator;
 
         #endregion
 
 
         [ImportingConstructor]
-        public ChatHistoryViewModel(IEventAggregator eventAggregator, ucChatView chatView)
+        public ChatHistoryViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-            this.chatView = chatView;
             this.NewChatCommand = new DelegateCommand(this.CreateNewChat);
         }
 
@@ -48,8 +46,8 @@ namespace Zhingur.Chat.Module.ViewModels
         {
             try
             {
-                var changeViewUserControlEventArgs = new ChangeViewEventArgs(this.chatView);
-                this.eventAggregator.GetEvent<ChangeViewEvent>().Publish(changeViewUserControlEventArgs);
+                var openChatViewEventArgs = new OpenChatViewEventArgs();
+                this.eventAggregator.GetEvent<OpenChatViewEvent>().Publish(openChatViewEventArgs);
             }
             catch (Exception)
             {

@@ -88,10 +88,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventArgs\ChangeChatViewEventArgs.cs" />
-    <Compile Include="EventArgs\ChangeViewEventArgs.cs" />
-    <Compile Include="Events\ChangeChatViewEvent.cs" />
-    <Compile Include="Events\ChangeViewEvent.cs" />
+    <Compile Include="EventArgs\OpenChatViewEventArgs.cs" />
+    <Compile Include="EventArgs\OpenMainViewEventArgs.cs" />
+    <Compile Include="Events\OpenChatViewEvent.cs" />
+    <Compile Include="Events\OpenMainViewEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

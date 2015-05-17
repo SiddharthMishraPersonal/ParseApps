@@ -13,7 +13,7 @@ namespace Common.Events.Events
     /// <summary>
     /// The change view event.
     /// </summary>
-    public class ChangeViewEvent : PubSubEvent<ChangeViewEventArgs>
+    public class OpenMainViewEvent : PubSubEvent<OpenMainViewEventArgs>
     {
     }
 }

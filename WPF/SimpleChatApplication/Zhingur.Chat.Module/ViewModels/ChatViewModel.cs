@@ -130,8 +130,8 @@ namespace Zhingur.Chat.Module.ViewModels
 
         private void GoBackCommandHandler()
         {
-            var eventArgs = new ChangeViewEventArgs(this.chatHistoryView);
-            this.eventAggregator.GetEvent<ChangeViewEvent>().Publish(eventArgs); ;
+            var eventArgs = new OpenMainViewEventArgs();
+            this.eventAggregator.GetEvent<OpenMainViewEvent>().Publish(eventArgs); ;
         }
 
         ICommand sendChatCommand;

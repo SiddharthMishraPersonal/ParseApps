@@ -22,6 +22,7 @@ namespace Zhingur.Chat.Module.ViewModels
         private UserControl contentControl;
         private IEventAggregator eventAggregator;
         private ucChatMainView chatMainView;
+        private ucChatView chatView;
 
 
         #endregion
@@ -64,20 +65,35 @@ namespace Zhingur.Chat.Module.ViewModels
         /// The view.
         /// </param>
         [ImportingConstructor]
-        public AppViewModel(IEventAggregator eventAggregator, ucChatMainView chatMainView)
+        public AppViewModel(IEventAggregator eventAggregator, ucChatMainView chatMainView, ucChatView chatView)
         {
             if (eventAggregator == null)
             {
                 throw new ArgumentNullException("eventAggregator");
             }
 
+            if (chatMainView == null)
+            {
+                throw new ArgumentNullException("ucChatMainView");
+            }
+
+            if (chatView == null)
+            {
+                throw new ArgumentNullException("ucChatView");
+            }
+
             this.eventAggregator = eventAggregator;
             this.chatMainView = chatMainView;
+            this.chatView = chatView;
             this.ContentControl = this.chatMainView;
 
             // Subscription of the event.
-            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewEvent>();
-            changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
+            var openMainViewEvent = this.eventAggregator.GetEvent<OpenMainViewEvent>();
+            openMainViewEvent.Subscribe(this.SubscribeOpenMainViewEvent);
+
+            var openChatViewEvent = this.eventAggregator.GetEvent<OpenChatViewEvent>();
+            openChatViewEvent.Subscribe(this.SubscribeOpenChatViewEvent);
+
         }
 
         #endregion
@@ -89,14 +105,14 @@ namespace Zhingur.Chat.Module.ViewModels
 
         #region Private Methods
 
-        private void SubscribeChangeViewEvent(ChangeViewEventArgs eventArgs)
+        private void SubscribeOpenMainViewEvent(OpenMainViewEventArgs eventArgs)
         {
-            var userControl = eventArgs.ViewUserControl;
+            this.ContentControl = this.chatMainView;
+        }
 
-            if (userControl != null)
-            {
-                this.ContentControl = userControl;
-            }
+        private void SubscribeOpenChatViewEvent(OpenChatViewEventArgs eventArgs)
+        {
+            this.ContentControl = this.chatView;
         }
 
         #endregion

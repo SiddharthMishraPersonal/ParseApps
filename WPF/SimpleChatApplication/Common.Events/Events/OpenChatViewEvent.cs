@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Common.Events.Events
 {
-    public class ChangeChatViewEvent : PubSubEvent<ChangeChatViewEventArgs>
+    public class OpenChatViewEvent : PubSubEvent<OpenChatViewEventArgs>
     {
     }
 }
