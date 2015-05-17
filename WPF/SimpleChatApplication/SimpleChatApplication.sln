@@ -8,6 +8,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhingur.Chat.Module", "Zhingur.Chat.Module\Zhingur.Chat.Module.csproj", "{002033BB-C80E-4473-9741-A413D1177177}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhingur.ChatApp", "Zhingur.ChatApp\Zhingur.ChatApp.csproj", "{9DF5D961-0D6A-4059-9CFD-48BF1356CE87}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F0F01844-BA16-4EC7-B357-0148474291D7} = {F0F01844-BA16-4EC7-B357-0148474291D7}
+		{002033BB-C80E-4473-9741-A413D1177177} = {002033BB-C80E-4473-9741-A413D1177177}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,11 +7,12 @@ using Microsoft.Practices.Prism.Regions;
 using Zhingur.Chat.Module.Helper;
 using Zhingur.Chat.Module.Views.UserControls;
 using System.ComponentModel.Composition;
-using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Commands;
 
 namespace Zhingur.Chat.Module.ViewModels
 {
+    using Microsoft.Practices.Prism.PubSubEvents;
+
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class AppViewModel : BaseViewModel
@@ -64,7 +65,7 @@ namespace Zhingur.Chat.Module.ViewModels
         /// The view.
         /// </param>
         [ImportingConstructor]
-        public AppViewModel(IRegionManager regionManager, ucChatHistoryView chatHistoryView)
+        public AppViewModel(IEventAggregator eventAggregator, IRegionManager regionManager, ucChatHistoryView chatHistoryView)
         {
             //if (eventAggregator == null)
             //{
