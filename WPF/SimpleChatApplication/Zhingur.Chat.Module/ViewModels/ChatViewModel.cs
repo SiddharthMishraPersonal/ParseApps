@@ -24,6 +24,8 @@ namespace Zhingur.Chat.Module.ViewModels
     using Microsoft.Practices.Prism.PubSubEvents;
     using Common.Events.EventArgs;
     using Common.Events.Events;
+    using System.Collections.ObjectModel;
+    using Zhingur.Chat.Module.Models;
 
     /// <summary>
     /// The chat view model.
@@ -36,16 +38,28 @@ namespace Zhingur.Chat.Module.ViewModels
 
         private UserControl chatHistoryView;
         private IEventAggregator eventAggregator;
-
+        private Guid senderProfileId;
+        private Guid receiverProfileId;
+        
         private string chatText;
         private string profileName;
         private string profilePic;
         private string userCurrentStatus;
+        ObservableCollection<Chat> chatLines;
 
         #endregion
 
         #region Properties
 
+        public ObservableCollection<Chat> ChatLines
+        {
+            get { return chatLines; }
+            set
+            {
+                chatLines = value;
+                this.RaisePropertyChanged("ChatLines");
+            }
+        }
 
         public string ProfilePic
         {
@@ -87,6 +101,26 @@ namespace Zhingur.Chat.Module.ViewModels
             }
         }
 
+        public Guid SenderProfileId
+        {
+            get { return this.senderProfileId; }
+            set
+            {
+                this.senderProfileId = value;
+                this.RaisePropertyChanged("SenderProfileId");
+            }
+        }
+
+        public Guid ReceiverProfileId
+        {
+            get { return this.receiverProfileId; }
+            set
+            {
+                this.receiverProfileId = value;
+                this.RaisePropertyChanged("ReceiverProfileId");
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -99,17 +133,27 @@ namespace Zhingur.Chat.Module.ViewModels
                 throw new ArgumentNullException("IEventAggregator");
             }
 
-            //if (chatHistoryView == null)
-            //{
-            //    throw new ArgumentNullException("ucChatHistoryView");
-            //}
-
-            //this.chatHistoryView = chatHistoryView;
             this.eventAggregator = eventAggregator;
             this.GoBackCommand = new DelegateCommand(this.GoBackCommandHandler);
 
             this.ProfileName = "No Name";
             this.UserCurrentStatus = "Offline";
+
+            this.ChatLines = new ObservableCollection<Chat>();
+            var chat = new Chat(SenderProfileId, "test")
+            {
+                IsSender = true
+            };
+            this.ChatLines.Add(chat);
+            chat = new Chat(ReceiverProfileId, "test");
+            this.ChatLines.Add(chat);
+            chat = new Chat(ReceiverProfileId, "test");
+            this.ChatLines.Add(chat);
+            chat = new Chat(SenderProfileId, "test")
+            {
+                IsSender = true
+            };
+            this.ChatLines.Add(chat);
         }
 
         #endregion

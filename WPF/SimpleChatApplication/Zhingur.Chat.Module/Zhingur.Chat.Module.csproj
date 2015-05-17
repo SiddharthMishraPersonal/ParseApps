@@ -98,7 +98,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertBooleanToVisibilityConverter.cs" />
     <Compile Include="Helper\BaseViewModel.cs" />
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\ChatHistoryViewModel.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
@@ -135,6 +139,10 @@
     <Compile Include="Views\UserControls\ucSettingsView.xaml.cs">
       <DependentUpon>ucSettingsView.xaml</DependentUpon>
     </Compile>
+    <Page Include="ResourceDictionaries\ChatModuleResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ucModuleMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,10 +206,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ResourceDictionaries\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common.Events\Common.Events.csproj">
       <Project>{f0f01844-ba16-4ec7-b357-0148474291d7}</Project>
