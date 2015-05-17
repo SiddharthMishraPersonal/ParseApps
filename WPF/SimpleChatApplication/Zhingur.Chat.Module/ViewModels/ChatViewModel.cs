@@ -17,17 +17,35 @@ namespace Zhingur.Chat.Module.ViewModels
     using System.Text;
     using System.Threading.Tasks;
     using Helper;
+    using System.ComponentModel.Composition;
 
     /// <summary>
     /// The chat view model.
     /// </summary>
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class ChatViewModel : BaseViewModel
     {
-        private ucChatView ucChatViewControl = null;
+        #region Private Member Variables
 
-        public ChatViewModel(ucChatView chatView)
+        private string chatText;
+
+        public string ChatText
         {
-            this.ucChatViewControl = chatView;
+            get { return chatText; }
+            set
+            {
+                chatText = value;
+                OnPropertyChanged("ChatText");
+            }
+        }
+
+        #endregion
+
+        [ImportingConstructor]
+        public ChatViewModel()
+        {
+
         }
     }
 }

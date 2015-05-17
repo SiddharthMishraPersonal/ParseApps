@@ -112,7 +112,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Unity\UnityRegister.cs" />
     <Compile Include="Views\ShellAppView.xaml.cs">
       <DependentUpon>ShellAppView.xaml</DependentUpon>
       <SubType>Code</SubType>

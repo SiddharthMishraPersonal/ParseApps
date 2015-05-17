@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SoapBox.Demo.PinBall"
+    xmlns:arena="clr-namespace:SoapBox.Core.Arena;assembly=SoapBox.Core.Arena"
+    x:Class="SoapBox.Demo.PinBall.PinBallBonusView">
+
+    <DataTemplate DataType="{x:Type local:PinBallBonusSprite}">
+        <Canvas>
+            <Path x:Name="bonusPath" Stroke="#FF101010" StrokeThickness="5" Data="{Binding Path=Geometry}">
+                <Path.Fill>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5">
+                        <GradientStop Offset="0" Color="#FF101010"/>
+                        <GradientStop Offset="1" Color="Black"/>
+                    </RadialGradientBrush>
+                </Path.Fill>
+            </Path>
+            <TextBlock Foreground="Black" Text="2X" FontSize="28" FontFamily="System" FontWeight="UltraBold">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-18" Y="-15"/>
+                        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Canvas>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding IsActive}" Value="True">
+                <Setter TargetName="bonusPath" Property="Stroke" Value="DarkOrange"/>
+                <Setter TargetName="bonusPath" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="DarkOrange"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </DataTemplate.Triggers> 
+    </DataTemplate>
+
+</ResourceDictionary>

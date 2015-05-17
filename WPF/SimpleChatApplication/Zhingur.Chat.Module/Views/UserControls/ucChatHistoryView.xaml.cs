@@ -17,20 +17,20 @@ namespace Zhingur.Chat.Module.Views.UserControls
     /// Interaction logic for ucChatHistoryView.xaml
     /// </summary>
     [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public partial class ucChatHistoryView : UserControl
     {
-        [ImportingConstructor]
         public ucChatHistoryView()
         {
             InitializeComponent();
         }
 
         [Import]
-        public AppViewModel AppViewModel
+        public ChatHistoryViewModel AppViewModel
         {
             get
             {
-                return this.DataContext as AppViewModel;
+                return this.DataContext as ChatHistoryViewModel;
             }
             set
             {

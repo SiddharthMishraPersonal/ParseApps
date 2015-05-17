@@ -1,0 +1,6 @@
+The sounds in this directory are copyright by erlingx
+from the site http://www.freesound.org/
+
+They are licensed under the Creative Commons Sampling
+Plus 1.0 License: 
+http://creativecommons.org/licenses/sampling+/1.0/

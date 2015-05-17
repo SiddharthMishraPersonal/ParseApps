@@ -3,22 +3,26 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Common.Events.EventArgs;
 using Common.Events.Events;
-using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 using Zhingur.Chat.Module.Helper;
 using Zhingur.Chat.Module.Views.UserControls;
+using System.ComponentModel.Composition;
+using Microsoft.Practices.Prism.PubSubEvents;
+using Microsoft.Practices.Prism.Commands;
 
 namespace Zhingur.Chat.Module.ViewModels
 {
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class AppViewModel : BaseViewModel
     {
         #region Private Member Variables
 
         private UserControl contentControl;
-        private IEventAggregator eventAggregator;
+        //private IEventAggregator eventAggregator;
         private IRegionManager regionManager;
-        private ucChatHistoryView view;
+        private ucChatHistoryView chatHistoryView;
+
 
         #endregion
 
@@ -41,13 +45,7 @@ namespace Zhingur.Chat.Module.ViewModels
             }
         }
 
-        private ICommand _newChatCommand;
-
-        public ICommand NewChatCommand
-        {
-            get { return _newChatCommand; }
-            set { _newChatCommand = value; }
-        }
+       
 
         #endregion
 
@@ -65,42 +63,32 @@ namespace Zhingur.Chat.Module.ViewModels
         /// <param name="view">
         /// The view.
         /// </param>
-        public AppViewModel(IEventAggregator eventAggregator, IRegionManager regionManager, ucChatHistoryView view)
+        [ImportingConstructor]
+        public AppViewModel(IRegionManager regionManager, ucChatHistoryView chatHistoryView)
         {
-            this.view = view;
-
-            if (eventAggregator == null)
-            {
-                throw new ArgumentNullException("eventAggregator");
-            }
+            //if (eventAggregator == null)
+            //{
+            //    throw new ArgumentNullException("eventAggregator");
+            //}
 
             if (regionManager == null)
             {
                 throw new ArgumentNullException("regionManager");
             }
 
-            this.eventAggregator = eventAggregator;
+            //this.eventAggregator = eventAggregator;
             this.regionManager = regionManager;
-            this.ContentControl = new ucChatHistoryView();
-            this.NewChatCommand = new DelegateCommand(this.CreateNewChat);
+            this.chatHistoryView = chatHistoryView;
+            this.ContentControl = this.chatHistoryView;
+            
 
-            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
-            changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
+            //var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
+            //changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
         }
 
         #endregion
 
-        #region Commands
-
-        private void CreateNewChat()
-        {
-            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
-
-            var changeViewEventArgs = new ChangeViewUserControlEventArgs(new ucChatView());
-            changeViewEvent.Publish(changeViewEventArgs);
-        }
-
-        #endregion
+        
 
         #region Public Methods
 
@@ -115,9 +103,9 @@ namespace Zhingur.Chat.Module.ViewModels
 
             if (userControl != null)
             {
-                if (userControl.GetType() == typeof (ucChatView))
+                if (userControl.GetType() == typeof(ucChatView))
                 {
-                    regionManager.RegisterViewWithRegion("MainRegion", typeof (ucChatView));
+                    regionManager.RegisterViewWithRegion("MainRegion", typeof(ucChatView));
                 }
             }
         }

@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41A16A6B-8640-4C43-A7BA-2E6BF54B34FF}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoapBox.Demo.PinBall</RootNamespace>
+    <AssemblyName>SoapBox.Demo.PinBall</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition, Version=2009.7.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\StartupCommands\Dummy.xaml.cs">
+      <DependentUpon>Dummy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App\StartupCommands\StartupCommand.cs" />
+    <Compile Include="Arena\PinBallTableView.xaml.cs">
+      <DependentUpon>PinBallTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\PinBallTable.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBonus\PinBallBonus.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBonus\PinBallBonusSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBonus\PinBallBonusView.xaml.cs">
+      <DependentUpon>PinBallBonusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallBottomBumper\PinBallBottomBumper.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBottomBumper\PinBallBottomBumperSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBottomBumper\PinBallBottomBumperView.xaml.cs">
+      <DependentUpon>PinBallBottomBumperView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallBottomRamp\PinBallBottomRamp.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBottomRamp\PinBallBottomRampSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallBottomRamp\PinBallBottomRampView.xaml.cs">
+      <DependentUpon>PinBallBottomRampView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallFlipperMount\PinBallFlipperMountView.xaml.cs">
+      <DependentUpon>PinBallFlipperMountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallFlipperMount\PinBallFlipperMount.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallFlipperMount\PinBallFlipperMountSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallFlipper\PinBallFlipperSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallFlipper\PinBallFlipperView.xaml.cs">
+      <DependentUpon>PinBallFlipperView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallKicker\PinBallKicker.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallKicker\PinBallKickerSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallKicker\PinBallKickerView.xaml.cs">
+      <DependentUpon>PinBallKickerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherFlipper.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherGuideSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherGuide.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherPlungerSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherPlunger.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherCasing.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherCasingSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelDisplayView.xaml.cs">
+      <DependentUpon>PinBallLevelDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelDisplay.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelDisplaySprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelTriggerView.xaml.cs">
+      <DependentUpon>PinBallLevelTriggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelTrigger.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelTriggerSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallPartition\PinBallPartition.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallPartition\PinBallPartitionSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallPartition\PinBallPartitionView.xaml.cs">
+      <DependentUpon>PinBallPartitionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallReturnRamp\PinBallReturnRampSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallReturnRamp\PinBallReturnRampView.xaml.cs">
+      <DependentUpon>PinBallReturnRampView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallRoundedTop\PinBallRoundedTop.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallRoundedTop\PinBallRoundedTopSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallRoundedTop\PinBallRoundedTopView.xaml.cs">
+      <DependentUpon>PinBallRoundedTopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallSensor\PinBallRectangularSensor.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallStop\PinBallStopController.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallStop\PinBallStop.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallStop\PinBallStopSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallStop\PinBallStopPin.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallStop\PinBallStopView.xaml.cs">
+      <DependentUpon>PinBallStopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallTableEdge\PinBallTableEdgeView.xaml.cs">
+      <DependentUpon>PinBallTableEdgeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallTableEdge\PinBallTableEdgeSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetView.xaml.cs">
+      <DependentUpon>PinBallTargetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTarget.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetCasing.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetCasingSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetPiston.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetPistonSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBall\PinBallSprite.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBall\PinBallView.xaml.cs">
+      <DependentUpon>PinBallView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBallSensor\PinBallCircularSensor.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherView.xaml.cs">
+      <DependentUpon>PinBallLauncherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\PinBall\PinBall.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallFlipper\PinBallFlipper.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncher.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallReturnRamp\PinBallReturnRamp.cs" />
+    <Compile Include="Arena\ArenaBodies\PinBallTableEdge\PinBallTableEdge.cs" />
+    <Compile Include="Arena\ArenaBodies\Pin\Pin.cs" />
+    <Compile Include="Arena\ArenaBodies\Pin\PinView.xaml.cs">
+      <DependentUpon>PinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arena\ArenaBodies\Pin\PinSprite.cs" />
+    <Compile Include="CompositionPoints.cs" />
+    <Compile Include="ExtensionPoints.cs" />
+    <Compile Include="Options\PinBallOptions.cs" />
+    <Compile Include="Options\PinBallOptionsPad.cs" />
+    <Compile Include="Options\PinBallOptionsPadView.xaml.cs">
+      <DependentUpon>PinBallOptionsPadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pads\InstructionsView.xaml.cs">
+      <DependentUpon>InstructionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pads\Instructions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\Sounds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sounds.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sound\SoundManager.cs" />
+    <Compile Include="Workbench\MainMenu\AboutBoxView.xaml.cs">
+      <DependentUpon>AboutBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workbench\MainMenu\HelpMenu.cs" />
+    <Compile Include="Workbench\MainMenu\ViewMenu.cs" />
+    <Compile Include="Workbench\StatusBar\BallCounter.cs" />
+    <Compile Include="Workbench\StatusBar\PlaceHolder.cs" />
+    <Compile Include="Workbench\StatusBar\ScoreDisplay.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Sounds.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sounds.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SoapBox.Core\SoapBox.Core.Arena\SoapBox.Core.Arena.csproj">
+      <Project>{FD3A32CD-A3B6-4059-8DD4-C4CBC8A2DA2B}</Project>
+      <Name>SoapBox.Core.Arena</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SoapBox.Core\SoapBox.Core.Contracts\SoapBox.Core.Contracts.csproj">
+      <Project>{FDF772E9-FEF6-487A-B5C7-B64267449CC0}</Project>
+      <Name>SoapBox.Core.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App\StartupCommands\Dummy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Arena\PinBallTableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallBonus\PinBallBonusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallBottomBumper\PinBallBottomBumperView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallBottomRamp\PinBallBottomRampView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallFlipperMount\PinBallFlipperMountView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallFlipper\PinBallFlipperView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallKicker\PinBallKickerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelDisplayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallLevel\PinBallLevelTriggerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallPartition\PinBallPartitionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallReturnRamp\PinBallReturnRampView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallRoundedTop\PinBallRoundedTopView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallStop\PinBallStopView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallTableEdge\PinBallTableEdgeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallTarget\PinBallTargetView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBall\PinBallView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\PinBallLauncher\PinBallLauncherView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Arena\ArenaBodies\Pin\PinView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Options\PinBallOptionsPadView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pads\InstructionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Workbench\MainMenu\AboutBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App\StartupCommands\star.png" />
+    <Content Include="Resources\Sounds\beat1.wav" />
+    <Content Include="Resources\Sounds\beat2.wav" />
+    <Content Include="Resources\Sounds\bonus_fast.wav">
+    </Content>
+    <Resource Include="Resources\Sounds\CC-LICENSE.txt" />
+    <Content Include="Resources\Sounds\brooomm.wav" />
+    <Content Include="Resources\Sounds\doodoodoodoo.wav" />
+    <Content Include="Resources\Sounds\driiinng2.wav" />
+    <Content Include="Resources\Sounds\flip.wav">
+    </Content>
+    <Content Include="Resources\Sounds\rattata_single.wav" />
+    <Content Include="Resources\Sounds\tack.wav" />
+    <Content Include="Resources\Sounds\tick.wav" />
+    <Content Include="Resources\Sounds\time.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

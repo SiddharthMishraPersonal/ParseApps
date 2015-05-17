@@ -10,6 +10,7 @@ using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.ServiceLocation;
 using SimpleChatApplication.Views;
 using Zhingur.Chat.Module;
+using Zhingur.Chat.Module.ModuleHelper;
 
 namespace SimpleChatApplication.BootStrapper
 {

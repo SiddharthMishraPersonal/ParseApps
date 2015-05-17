@@ -1,0 +1,243 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:SoapBox.Demo.PinBall"
+    xmlns:arena="clr-namespace:SoapBox.Core.Arena;assembly=SoapBox.Core.Arena"
+    x:Class="SoapBox.Demo.PinBall.PinBallLevelDisplayView">
+
+    <s:Double x:Key="PinBallLevelDisplaySprite_StrokeThickness">3</s:Double>
+    <s:Double x:Key="PinBallLevelDisplaySprite_CornerRadius">3</s:Double>
+    <s:Double x:Key="PinBallLevelDisplaySprite_RectHeight">10</s:Double>
+    <Color x:Key="PinBallLevelDisplaySprite_ColorInActive">#FF101010</Color>
+    <SolidColorBrush x:Key="PinBallLevelDisplaySprite_BrushInActive" Color="{StaticResource PinBallLevelDisplaySprite_ColorInActive}"/>
+    <Color x:Key="PinBallLevelDisplaySprite_ColorActive">DarkOrange</Color>
+    <SolidColorBrush x:Key="PinBallLevelDisplaySprite_BrushActive" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+    
+    <DataTemplate DataType="{x:Type local:PinBallLevelDisplaySprite}">
+        <Canvas>
+            <Rectangle x:Name="Level1" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="50" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-25" Y="-50"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level2" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="60" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-30" Y="-40"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level3" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="70" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-35" Y="-30"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level4" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="80" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-40" Y="-20"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level5" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="90" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-45" Y="-10"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level6" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="100" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-50" Y="0"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level7" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="110" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-55" Y="10"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level8" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="120" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-60" Y="20"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level9" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="130" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-65" Y="30"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Level10" Stroke="{StaticResource PinBallLevelDisplaySprite_BrushInActive}" StrokeThickness="{StaticResource PinBallLevelDisplaySprite_StrokeThickness}" 
+                       RadiusX="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" RadiusY="{StaticResource PinBallLevelDisplaySprite_CornerRadius}" 
+                       Width="140" Height="{StaticResource PinBallLevelDisplaySprite_RectHeight}"
+                       Fill="Black">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-70" Y="40"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+        
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Level1}" Value="True">
+                <Setter TargetName="Level1" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level1" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level2}" Value="True">
+                <Setter TargetName="Level2" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level2" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level3}" Value="True">
+                <Setter TargetName="Level3" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level3" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level4}" Value="True">
+                <Setter TargetName="Level4" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level4" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level5}" Value="True">
+                <Setter TargetName="Level5" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level5" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level6}" Value="True">
+                <Setter TargetName="Level6" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level6" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level7}" Value="True">
+                <Setter TargetName="Level7" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level7" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level8}" Value="True">
+                <Setter TargetName="Level8" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level8" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level9}" Value="True">
+                <Setter TargetName="Level9" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level9" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Level10}" Value="True">
+                <Setter TargetName="Level10" Property="Stroke" Value="{StaticResource PinBallLevelDisplaySprite_BrushActive}"/>
+                <Setter TargetName="Level10" Property="Fill">
+                    <Setter.Value>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5">
+                            <GradientStop Offset="0" Color="{StaticResource PinBallLevelDisplaySprite_ColorActive}"/>
+                            <GradientStop Offset="1" Color="Black"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </DataTemplate.Triggers> 
+    </DataTemplate>
+
+</ResourceDictionary>

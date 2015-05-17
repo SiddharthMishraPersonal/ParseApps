@@ -7,7 +7,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using SimpleChatApplication.Unity;
 
 namespace SimpleChatApplication
 {
@@ -51,7 +50,6 @@ namespace SimpleChatApplication
         /// </param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            UnityRegister.Register();
             base.OnStartup(e);
             var bootstrapper = new QuickStartBootStrapper();
             bootstrapper.Run();

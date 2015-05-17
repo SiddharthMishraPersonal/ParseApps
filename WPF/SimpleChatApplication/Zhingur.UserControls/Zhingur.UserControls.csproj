@@ -50,16 +50,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Zhingur.Contract.InheritedContract\Zhingur.Contract.InheritedContract.csproj">
-      <Project>{5a1bd28e-715d-407a-bad7-4c3060fcbab9}</Project>
-      <Name>Zhingur.Contract.InheritedContract</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="UserControls\ucChatHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModuleHelper\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

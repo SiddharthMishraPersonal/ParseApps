@@ -21,79 +21,47 @@ namespace Zhingur.ChatApp
     using System.Windows;
 
     using Parse;
-
-    using Zhingur.Contract.InheritedContract;
+    using Zhingur.ChatApp.BootStrapper;
+   
 
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        [Import]
-        public ViewFactory ViewFactory { get; set; }
-
         public App()
         {
             ParseClient.Initialize("exhummmyHwKOUmv8DoG96hG1QKa3wdGnCRv6L7aU", "ZYilkxNirRFFwgB3WExZjHVMUbmdDcsKiVHmAPFv");
             this.Startup += App_Startup;
         }
 
-        void App_Startup(object sender, StartupEventArgs e)
+        /// <summary>
+        /// The startup event handler to authenticate the Application client.
+        /// </summary>
+        /// <param name="sender">
+        /// Sender object.
+        /// </param>
+        /// <param name="e">
+        /// The event args.
+        /// </param>
+        private async void App_Startup(object sender, StartupEventArgs e)
         {
+            await ParseAnalytics.TrackAppOpenedAsync();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
             try
             {
-                var d =  Directory.GetCurrentDirectory();
-                var catalog = new DirectoryCatalog(@".\");
-                var container = new CompositionContainer(catalog);
-                container.ComposeParts(this);
+                RootBootStrapper bootstrapper = new RootBootStrapper();
+                bootstrapper.Run();
             }
-            catch (Exception exception)
+            catch (Exception)
             {
+
                 throw;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        ///// <summary>
-        ///// To import classes.
-        ///// </summary>
-        //[ImportMany(typeof(IMain))]
-        //private IEnumerable<Lazy<IMain>> components;
-
-        //private CompositionContainer mefContainer;
-
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
-        //    try
-        //    {
-        //        var catalog = new DirectoryCatalog(@"C:\Users\WKTF64\Documents\GitHub\ParseApps\WPF\Artifacts");
-        //        var container = new CompositionContainer(catalog);
-        //        container.ComposeParts(this);
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        throw;
-        //    }
-        //}
     }
 }
