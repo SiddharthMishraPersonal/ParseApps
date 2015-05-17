@@ -7,7 +7,8 @@
              d:DesignWidth="300"
              mc:Ignorable="d">
     <Grid>
-        <ContentControl HorizontalAlignment="Stretch"
+        <ContentControl Grid.Row="0"
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Content="{Binding ContentControl}" />
     </Grid>

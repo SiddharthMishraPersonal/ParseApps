@@ -36,20 +36,20 @@ namespace Zhingur.Chat.Module.ViewModels
 
         #region Commands
 
-        private ICommand _newChatCommand;
+        private ICommand newChatCommand;
 
         public ICommand NewChatCommand
         {
-            get { return _newChatCommand; }
-            set { _newChatCommand = value; }
+            get { return newChatCommand; }
+            set { newChatCommand = value; }
         }
 
         private void CreateNewChat()
         {
             try
             {
-                var changeViewUserControlEventArgs = new ChangeViewUserControlEventArgs(this.chatView);
-                this.eventAggregator.GetEvent<ChangeViewUserControlEvent>().Publish(changeViewUserControlEventArgs);
+                var changeViewUserControlEventArgs = new ChangeViewEventArgs(this.chatView);
+                this.eventAggregator.GetEvent<ChangeViewEvent>().Publish(changeViewUserControlEventArgs);
             }
             catch (Exception)
             {

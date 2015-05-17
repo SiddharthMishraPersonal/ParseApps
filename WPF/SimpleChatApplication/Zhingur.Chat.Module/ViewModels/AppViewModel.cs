@@ -21,8 +21,7 @@ namespace Zhingur.Chat.Module.ViewModels
 
         private UserControl contentControl;
         private IEventAggregator eventAggregator;
-        private IRegionManager regionManager;
-        private ucChatHistoryView chatHistoryView;
+        private ucChatMainView chatMainView;
 
 
         #endregion
@@ -42,11 +41,11 @@ namespace Zhingur.Chat.Module.ViewModels
             set
             {
                 this.contentControl = value;
-                this.OnPropertyChanged("ContentControl");
+                this.RaisePropertyChanged("ContentControl");
             }
         }
 
-       
+
 
         #endregion
 
@@ -65,25 +64,19 @@ namespace Zhingur.Chat.Module.ViewModels
         /// The view.
         /// </param>
         [ImportingConstructor]
-        public AppViewModel(IEventAggregator eventAggregator, IRegionManager regionManager, ucChatHistoryView chatHistoryView)
+        public AppViewModel(IEventAggregator eventAggregator, ucChatMainView chatMainView)
         {
             if (eventAggregator == null)
             {
                 throw new ArgumentNullException("eventAggregator");
             }
 
-            if (regionManager == null)
-            {
-                throw new ArgumentNullException("regionManager");
-            }
-
             this.eventAggregator = eventAggregator;
-            this.regionManager = regionManager;
-            this.chatHistoryView = chatHistoryView;
-            this.ContentControl = this.chatHistoryView;
+            this.chatMainView = chatMainView;
+            this.ContentControl = this.chatMainView;
 
             // Subscription of the event.
-            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewUserControlEvent>();
+            var changeViewEvent = this.eventAggregator.GetEvent<ChangeViewEvent>();
             changeViewEvent.Subscribe(this.SubscribeChangeViewEvent);
         }
 
@@ -96,7 +89,7 @@ namespace Zhingur.Chat.Module.ViewModels
 
         #region Private Methods
 
-        private void SubscribeChangeViewEvent(ChangeViewUserControlEventArgs eventArgs)
+        private void SubscribeChangeViewEvent(ChangeViewEventArgs eventArgs)
         {
             var userControl = eventArgs.ViewUserControl;
 

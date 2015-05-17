@@ -7,9 +7,9 @@ using System.Windows.Controls;
 
 namespace Common.Events.EventArgs
 {
-    public class ChangeViewUserControlEventArgs
+  public  class ChangeChatViewEventArgs
     {
-        /// <summary>
+      /// <summary>
         /// The user control.
         /// </summary>
         private readonly UserControl viewUserControl;
@@ -20,7 +20,7 @@ namespace Common.Events.EventArgs
         /// <param name="viewUserControl">
         /// The view user control.
         /// </param>
-        public ChangeViewUserControlEventArgs(UserControl viewUserControl)
+        public ChangeChatViewEventArgs(UserControl viewUserControl)
         {
             this.viewUserControl = viewUserControl;
         }

@@ -28,7 +28,7 @@ namespace Zhingur.Chat.Module.Helper
         /// <param name="property">
         /// The property name.
         /// </param>
-        public void OnPropertyChanged(string property)
+        public void RaisePropertyChanged(string property)
         {
             if (PropertyChanged != null)
             {

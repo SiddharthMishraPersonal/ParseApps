@@ -4,7 +4,7 @@
         xmlns:Reg="http://www.codeplex.com/CompositeWPF"
         Title="Zhingur Chat"
         Width="300"
-        Height="500">
+        Height="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <ContentControl HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"

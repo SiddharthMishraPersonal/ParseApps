@@ -18,23 +18,23 @@ using Zhingur.Chat.Module.ViewModels;
 namespace Zhingur.Chat.Module.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for ucContactsView.xaml
+    /// Interaction logic for ucFavoriteView.xaml
     /// </summary>
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public partial class ucContactsView : UserControl
+    public partial class ucFavoriteView : UserControl
     {
-        public ucContactsView()
+        public ucFavoriteView()
         {
             InitializeComponent();
         }
 
         [Import]
-        public ContactsViewModel ContactsViewModel
+        public FavoriteViewModel FavoriteViewModel
         {
             get
             {
-                return this.DataContext as ContactsViewModel;
+                return this.DataContext as FavoriteViewModel;
             }
             set
             {

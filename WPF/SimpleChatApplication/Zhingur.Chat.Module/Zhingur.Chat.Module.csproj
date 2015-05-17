@@ -102,6 +102,10 @@
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\ChatHistoryViewModel.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
+    <Compile Include="ViewModels\ContactsViewModel.cs" />
+    <Compile Include="ViewModels\FavoriteViewModel.cs" />
+    <Compile Include="ViewModels\ChatMainViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\ucModuleMainView.xaml.cs">
       <DependentUpon>ucModuleMainView.xaml</DependentUpon>
     </Compile>
@@ -109,11 +113,17 @@
       <DependentUpon>ucChatHistoryView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\UserControls\ucChatMainView.xaml.cs">
+      <DependentUpon>ucChatMainView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ucChatView.xaml.cs">
       <DependentUpon>ucChatView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\ucContactsView.xaml.cs">
       <DependentUpon>ucContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ucFavoriteView.xaml.cs">
+      <DependentUpon>ucFavoriteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\ucLoginPageView.xaml.cs">
       <DependentUpon>ucLoginPageView.xaml</DependentUpon>
@@ -122,11 +132,18 @@
       <DependentUpon>ucRegisterUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModuleHelper\ZhingurChatModule.cs" />
+    <Compile Include="Views\UserControls\ucSettingsView.xaml.cs">
+      <DependentUpon>ucSettingsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\ucModuleMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\ucChatHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ucChatMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,11 +155,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UserControls\ucFavoriteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\ucLoginPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\ucRegisterUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ucSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
