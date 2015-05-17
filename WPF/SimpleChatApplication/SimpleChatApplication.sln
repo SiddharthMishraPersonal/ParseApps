@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhingur.ChatApp", "Zhingur.
 		{002033BB-C80E-4473-9741-A413D1177177} = {002033BB-C80E-4473-9741-A413D1177177}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse.Service", "Parse.Service\Parse.Service.csproj", "{B66F36CC-74AB-492B-83DF-D97B79DB7749}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{9DF5D961-0D6A-4059-9CFD-48BF1356CE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DF5D961-0D6A-4059-9CFD-48BF1356CE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DF5D961-0D6A-4059-9CFD-48BF1356CE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66F36CC-74AB-492B-83DF-D97B79DB7749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66F36CC-74AB-492B-83DF-D97B79DB7749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66F36CC-74AB-492B-83DF-D97B79DB7749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66F36CC-74AB-492B-83DF-D97B79DB7749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
